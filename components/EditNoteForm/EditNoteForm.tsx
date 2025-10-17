@@ -24,12 +24,8 @@ const EditNoteForm = ({ note, closeForm }: Props) => {
     },
   });
 
-  const handleUpdateNote = async (formData: FormData) => {
-    const newTitle = formData.get("title") as string;
-    const newContent = formData.get("content") as string;
-    if (note?.id) {
-      mutate({ title: newTitle, content: newContent });
-    }
+  const handleUpdateNote = async () => {
+    mutate({ title, content });
   };
 
   return (

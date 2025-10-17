@@ -1,14 +1,11 @@
-import { NoteType } from '@/lib/types'
+import { NoteType } from "@/lib/types";
+import Link from "next/link";
 
-type Props = {
-  note: NoteType
+interface Props {
+  note: NoteType;
 }
 const NoteItem = ({ note }: Props) => {
-  return (
-    <li>
-      <p>{note.title}</p>
-    </li>
-  )
-}
+  return <Link href={`/notes/${note.id}`}>{note.title}</Link>;
+};
 
-export default NoteItem
+export default NoteItem;

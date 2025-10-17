@@ -1,17 +1,19 @@
-import { NoteType } from '@/lib/types'
-import NoteItem from '../NoteListItem/NoteListItem'
+import { NoteType } from "@/lib/types";
+import NoteItem from "../NoteListItem/NoteListItem";
 
-type Props = {
-  notes: NoteType[]
+interface Props {
+  notes: NoteType[];
 }
 const NoteList = ({ notes }: Props) => {
   return (
     <ul>
       {notes.map((note) => (
-        <NoteItem note={note} key={note.id} />
+        <li key={note.id}>
+          <NoteItem note={note} />
+        </li>
       ))}
     </ul>
-  )
-}
+  );
+};
 
-export default NoteList
+export default NoteList;
