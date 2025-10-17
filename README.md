@@ -26,7 +26,7 @@
 <ul>
     <li>axios api</li>
     <ul>
-        <li>https://next-docs-api.onrender.com</li>
+        <li>https://next-docs-9f0504b0a741.herokuapp.com/</li>
         <li>lib/api.ts</li>
         <li>SSR</li>
     </ul>
