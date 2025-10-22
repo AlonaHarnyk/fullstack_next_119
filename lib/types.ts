@@ -7,3 +7,11 @@ export interface NoteType {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface CategoryType {
+  id: string;
+  name: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+}

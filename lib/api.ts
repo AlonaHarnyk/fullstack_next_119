@@ -1,5 +1,5 @@
 import axios from "axios";
-import { NoteType } from "./types";
+import { CategoryType, NoteType } from "./types";
 
 axios.defaults.baseURL = "https://next-docs-9f0504b0a741.herokuapp.com/";
 
@@ -28,5 +28,10 @@ export const editNote = async (
   newNotedata: NewNoteData
 ): Promise<NoteType> => {
   const { data } = await axios.patch<NoteType>(`/notes/${id}`, newNotedata);
+  return data;
+};
+
+export const getCategories = async () => {
+  const { data } = await axios.get<CategoryType[]>(`/categories`);
   return data;
 };
