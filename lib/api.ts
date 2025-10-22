@@ -8,8 +8,13 @@ export interface NoteListType {
   total: number;
 }
 
-export const getNotes = async () => {
-  const { data } = await axios.get<NoteListType>("/notes");
+export const getNotes = async (categoryId?: string, title?: string) => {
+  const { data } = await axios.get<NoteListType>("/notes", {
+    params: {
+      categoryId,
+      title,
+    },
+  });
   return data;
 };
 
