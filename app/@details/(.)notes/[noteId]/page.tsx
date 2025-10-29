@@ -1,4 +1,4 @@
-import GoBackButton from "@/components/GoBackButton/GoBackButton";
+import ClosePreviewButton from "@/components/ClosePreviewButton/ClosePreviewButton";
 import { getSingleNote } from "@/lib/api";
 
 interface Props {
@@ -13,7 +13,7 @@ const PreviewDetails = async ({ params }: Props) => {
   return (
     <>
       <hr />
-      <GoBackButton />
+      <ClosePreviewButton />
       <h2>{details?.title}</h2>
       <p>{details?.content}</p>
     </>
