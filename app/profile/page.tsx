@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const Profile = () => {
+
   return (
     <>
       <p>Profile</p>
