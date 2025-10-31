@@ -18,11 +18,28 @@ const Header = async () => {
             </Link>
           </li>
           <li>
-            <Link href={`/notes/filter/${ALL_NOTES}`} className={css.link}>Notes</Link>
+            <Link href={`/notes/filter/${ALL_NOTES}`} className={css.link}>
+              Notes
+            </Link>
           </li>
           <li>
             <Link href="/profile" className={css.link}>
               Profile
+            </Link>
+          </li>
+          <li>
+            <Link href="/notes/actions/create" className={css.link}>
+              Create note
+            </Link>
+          </li>
+          <li>
+            <Link href="/counter" className={css.link}>
+              Counter
+            </Link>
+          </li>
+          <li>
+            <Link href="/counter-test" className={css.link}>
+              Counter Test
             </Link>
           </li>
         </ul>

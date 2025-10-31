@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 const About = () => {
+
+
   return (
     <>
       {/* <p>

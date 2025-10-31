@@ -40,3 +40,16 @@ export const getCategories = async () => {
   const { data } = await axios.get<CategoryType[]>(`/categories`);
   return data;
 };
+
+export interface CreateNoteData {
+  title: string;
+  content: string;
+  categoryId: string;
+}
+
+export const createNote = async (
+  noteData: CreateNoteData
+): Promise<NoteType> => {
+  const { data } = await axios.post<NoteType>(`/notes`, noteData);
+  return data;
+};
