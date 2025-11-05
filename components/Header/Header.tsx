@@ -32,16 +32,6 @@ const Header = async () => {
               Create note
             </Link>
           </li>
-          <li>
-            <Link href="/counter" className={css.link}>
-              Counter
-            </Link>
-          </li>
-          <li>
-            <Link href="/counter-test" className={css.link}>
-              Counter Test
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>
