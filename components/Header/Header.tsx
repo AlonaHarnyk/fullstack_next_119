@@ -32,6 +32,16 @@ const Header = async () => {
               Create note
             </Link>
           </li>
+          <li>
+            <Link href="/register" className={css.link}>
+              Register
+            </Link>
+          </li>
+          <li>
+            <Link href="/login" className={css.link}>
+              Login
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

@@ -1,7 +1,10 @@
 import axios from "axios";
-import { CategoryType, NoteType } from "./types";
+import { CategoryType, NoteType, User } from "./types";
 
-axios.defaults.baseURL = "https://next-docs-9f0504b0a741.herokuapp.com/";
+const api = axios.create({
+  baseURL: "http://localhost:3000/api",
+  withCredentials: true,
+});
 
 export interface NoteListType {
   notes: NoteType[];
@@ -9,7 +12,7 @@ export interface NoteListType {
 }
 
 export const getNotes = async (categoryId?: string, title?: string) => {
-  const { data } = await axios.get<NoteListType>("/notes", {
+  const { data } = await api.get<NoteListType>("/notes", {
     params: {
       categoryId,
       title,
@@ -19,7 +22,7 @@ export const getNotes = async (categoryId?: string, title?: string) => {
 };
 
 export const getSingleNote = async (id: string) => {
-  const { data } = await axios.get<NoteType>(`/notes/${id}`);
+  const { data } = await api.get<NoteType>(`/notes/${id}`);
   return data;
 };
 
@@ -37,7 +40,7 @@ export const editNote = async (
 };
 
 export const getCategories = async () => {
-  const { data } = await axios.get<CategoryType[]>(`/categories`);
+  const { data } = await api.get<CategoryType[]>(`/categories`);
   return data;
 };
 
@@ -50,6 +53,27 @@ export interface CreateNoteData {
 export const createNote = async (
   noteData: CreateNoteData
 ): Promise<NoteType> => {
-  const { data } = await axios.post<NoteType>(`/notes`, noteData);
+  const { data } = await api.post<NoteType>(`/notes`, noteData);
+  return data;
+};
+
+export interface RegisterData {
+  username: string;
+  email: string;
+  password: string;
+}
+
+export const register = async (registerData: RegisterData): Promise<User> => {
+  const { data } = await api.post<User>(`/auth/register`, registerData);
+  return data;
+};
+
+export interface LoginData {
+  email: string;
+  password: string;
+}
+
+export const login = async (loginData: LoginData): Promise<User> => {
+  const { data } = await api.post<User>(`/auth/login`, loginData);
   return data;
 };

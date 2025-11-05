@@ -15,3 +15,9 @@ export interface CategoryType {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface User {
+  id: string;
+  email: string;
+  username: string;
+}
