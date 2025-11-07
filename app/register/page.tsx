@@ -9,7 +9,7 @@ const Register = () => {
     const userdata = Object.fromEntries(formdata) as unknown as RegisterData;
     const user = await register(userdata);
     if (user) {
-      router.push("/login");
+      router.push("/profile");
     }
   };
 
