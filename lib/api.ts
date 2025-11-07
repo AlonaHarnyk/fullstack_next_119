@@ -31,14 +31,6 @@ export interface NewNoteData {
   content: string;
 }
 
-export const editNote = async (
-  id: string,
-  newNotedata: NewNoteData
-): Promise<NoteType> => {
-  const { data } = await axios.patch<NoteType>(`/notes/${id}`, newNotedata);
-  return data;
-};
-
 export const getCategories = async () => {
   const { data } = await api.get<CategoryType[]>(`/categories`);
   return data;
