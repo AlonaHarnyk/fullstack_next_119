@@ -3,7 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import TanstackProvider from "@/components/TanstackProvider/TanstackProvider";
-
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 const robotoFont = Roboto({
   variable: "--font-roboto",
@@ -26,9 +26,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${robotoFont.variable}`}>
         <TanstackProvider>
-          <Header />
-          {children}
-          {details}
+          <AuthProvider>
+            <Header />
+            {children}
+            {details}
+          </AuthProvider>
         </TanstackProvider>
       </body>
     </html>

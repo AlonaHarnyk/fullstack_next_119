@@ -1,14 +1,17 @@
 "use client";
 
 import { register, RegisterData } from "@/lib/api";
+import { useAuthStore } from "@/lib/store/auth";
 import { useRouter } from "next/navigation";
 
 const Register = () => {
   const router = useRouter();
+  const { setAuth } = useAuthStore();
   const handleSubmit = async (formdata: FormData) => {
     const userdata = Object.fromEntries(formdata) as unknown as RegisterData;
     const user = await register(userdata);
     if (user) {
+      setAuth(user);
       router.push("/profile");
     }
   };

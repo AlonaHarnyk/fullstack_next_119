@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CategoryType, NoteType, User } from "./types";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: "http://localhost:3000/api",
   withCredentials: true,
 });
@@ -67,5 +67,24 @@ export interface LoginData {
 
 export const login = async (loginData: LoginData): Promise<User> => {
   const { data } = await api.post<User>(`/auth/login`, loginData);
+  return data;
+};
+
+export interface SuccessState {
+  success: boolean;
+}
+
+export const checkSession = async (): Promise<boolean> => {
+  const { data } = await api.get<SuccessState>(`/auth/session`);
+  return data.success;
+};
+
+export const getUser = async (): Promise<User> => {
+  const { data } = await api.get<User>(`/auth/me`);
+  return data;
+};
+
+export const logout = async (): Promise<SuccessState> => {
+  const { data } = await api.post<SuccessState>(`/auth/logout`);
   return data;
 };

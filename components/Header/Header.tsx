@@ -1,6 +1,7 @@
 import Link from "next/link";
 import css from "./Header.module.css";
 import { ALL_NOTES } from "@/lib/constants";
+import AuthNavigation from "../AuthNavigation/AuthNavigation";
 
 const Header = async () => {
   return (
@@ -32,16 +33,7 @@ const Header = async () => {
               Create note
             </Link>
           </li>
-          <li>
-            <Link href="/register" className={css.link}>
-              Register
-            </Link>
-          </li>
-          <li>
-            <Link href="/login" className={css.link}>
-              Login
-            </Link>
-          </li>
+          <AuthNavigation />
         </ul>
       </nav>
     </header>

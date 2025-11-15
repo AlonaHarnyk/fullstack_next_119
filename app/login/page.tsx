@@ -1,14 +1,16 @@
 "use client";
 
 import { login, LoginData } from "@/lib/api";
+import { useAuthStore } from "@/lib/store/auth";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
   const router = useRouter();
+  const {setAuth} = useAuthStore()
   const handleSubmit = async (formdata: FormData) => {
     const userdata = Object.fromEntries(formdata) as unknown as LoginData;
       const user = await login(userdata);
-      console.log(user)
+      setAuth(user)
     if (user) {
       router.push("/profile");
     }
